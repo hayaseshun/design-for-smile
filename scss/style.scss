@@ -1,5 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:display=swap");
 
+@import url("https://use.typekit.net/lwz3oxu.css");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+/* ブレークポイント */
+$breakpoints: (
+  //キー: 値
+  "sm": "screen and (max-width: 699px)",
+  "tab": "(min-width: 700px) and (max-width: 999px)",
+  "pc": "screen and (min-width: 1000px)"
+) !default;
+
+//メディアクエリー
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
 html {
   font-size: 62.5%;
 }
@@ -9,7 +25,10 @@ body {
 
 h1 {
   font-family: "Montserrat", sans-serif;
-  font-size: 7.2rem;
+  font-size: 5.6rem;
+  @include mq(pc) {
+    font-size: 7.2rem;
+  }
 }
 h2 {
   font-family: "Montserrat", sans-serif;
@@ -74,12 +93,13 @@ img {
     z-index: -1;
   }
   &__bg {
+    padding: 0 4vw;
     height: 86.5%;
     width: 76.4%;
     background: url(/image/kv-img@2x.png) no-repeat center center/cover;
     &::after {
       content: "";
-      background: rgba(0,0,0,.34);
+      background: rgba(0, 0, 0, 0.34);
       width: 100%;
       position: absolute;
       top: 0;
@@ -95,9 +115,14 @@ img {
     transform: translate(50%, -50%);
     color: #fff;
     z-index: 10;
+    padding: 0 4vw;
   }
   &__massage--sub-text {
     font-size: 2rem;
+    line-height: 1.6;
+    @include mq(sm) {
+      font-size: 1.6rem;
+    }
   }
 }
 
@@ -111,7 +136,7 @@ img {
   position: relative;
   &::after {
     content: "";
-    background: rgba(0,0,0,.27);
+    background: rgba(0, 0, 0, 0.27);
     width: 100%;
     position: absolute;
     top: 0;
@@ -135,15 +160,17 @@ img {
 # works-culture
 ===================================================== */
 .works-culture {
-  display: flex;
   margin: 80px auto 0;
-
+  padding: 0 4vw;
+  @include mq(pc) {
+    display: flex;
+  }
   &__img {
     margin-bottom: 30px;
     position: relative;
     &::after {
       content: "";
-      background: rgba(0,0,0,.27);
+      background: rgba(0, 0, 0, 0.27);
       width: 100%;
       position: absolute;
       top: 0;
@@ -156,10 +183,23 @@ img {
   }
 }
 .works-culture-common {
-  width: calc(50% -60px / 2);
-  & + & {
-    margin-left: 60px;
+  @include mq(pc) {
+    width: calc(50% -60px / 2);
   }
+  & + & {
+    @include mq(pc) {
+      margin-left: 60px;
+    }
+    @include mq(tab) {
+      margin-top: 80px;
+    }
+    @include mq(sm) {
+      margin-top: 40px;
+    }
+  }
+}
+.works-culture-content {
+  max-width: 520px;
 }
 
 /*=====================================================
@@ -168,10 +208,13 @@ img {
 
 .latest-topics-content {
   margin: 120px auto 0;
+  padding: 0 4vw;
 }
 .topics-news {
   max-width: 700px;
-  margin-left: auto;
+  @include mq(pc) {
+    margin-left: auto;
+  }
   a {
     color: #222;
     display: block;
@@ -203,9 +246,18 @@ img {
   background: #f2f2f2;
 }
 .contact-wrapper {
-  padding: 60px 170px 120px;
-  display: flex;
-  align-items: center;
+  @include mq(pc) {
+    display: flex;
+    align-items: center;
+    padding: 60px 170px 120px;
+  }
+  @include mq(tab) {
+    padding: 40px 30px;
+    max-width: 520px;
+  }
+  @include mq(sm) {
+    padding: 40px 15px;
+  }
 }
 .contact-content {
   max-width: 440px;
@@ -220,12 +272,11 @@ img {
   position: relative;
   &::after {
     content: "";
-    background: rgba(0,0,0,.27);
+    background: rgba(0, 0, 0, 0.27);
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
   }
-
 }
