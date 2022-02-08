@@ -25,6 +25,7 @@ img {
   margin-bottom: 30px;
 }
 .util_btn {
+  margin-top: 30px;
   a {
     display: inline-block;
     background: #000000;
@@ -76,14 +77,24 @@ img {
     height: 86.5%;
     width: 76.4%;
     background: url(/image/kv-img@2x.png) no-repeat center center/cover;
+    &::after {
+      content: "";
+      background: rgba(0,0,0,.34);
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
   }
 
   &__message {
     position: absolute;
     top: 50%;
-    right: 190px;
+    right: 300px;
     transform: translate(50%, -50%);
     color: #fff;
+    z-index: 10;
   }
   &__massage--sub-text {
     font-size: 2rem;
@@ -140,13 +151,18 @@ img {
 .topics-news {
   max-width: 700px;
   margin-left: auto;
+  a {
+    color: #222;
+    display: block;
+    &:not(:first-child) {
+      margin-top: 32px;
+    }
+  }
 }
 .topics-news-item {
   padding-bottom: 11px;
-  border-bottom: 1px solid #DDDDDD;
-  &:not(:first-child) {
-    margin-top: 32px;
-  }
+  border-bottom: 1px solid #dddddd;
+
   &__date {
     font-size: 1rem;
     margin-bottom: 13px;
@@ -154,5 +170,27 @@ img {
   &__text {
     font-size: 1.2rem;
     font-weight: bold;
+  }
+}
+.news-btn {
+  text-align: right;
+}
+/*=====================================================
+# contact
+===================================================== */
+.contact {
+  background: #f2f2f2;
+}
+.contact-wrapper {
+  padding: 60px 170px 120px;
+  display: flex;
+  align-items: center;
+}
+.contact-content {
+  max-width: 440px;
+  margin-right: 80px;
+
+  &__text {
+    line-height: 2;
   }
 }
