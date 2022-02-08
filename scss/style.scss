@@ -108,13 +108,24 @@ img {
   background: url(/image/about-img@2x.png) no-repeat center center/cover;
   margin: 120px auto 0;
   padding: 110px 0 110px 50px;
+  position: relative;
+  &::after {
+    content: "";
+    background: rgba(0,0,0,.27);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
 }
 .about-content {
   padding: 50px 30px;
   background: #fff;
   max-width: 590px;
   line-height: 2;
-
+  position: relative;
+  z-index: 10;
   &__message {
     margin-bottom: 30px;
   }
@@ -129,6 +140,16 @@ img {
 
   &__img {
     margin-bottom: 30px;
+    position: relative;
+    &::after {
+      content: "";
+      background: rgba(0,0,0,.27);
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
   }
   &__text {
     margin-bottom: 28px;
@@ -193,4 +214,18 @@ img {
   &__text {
     line-height: 2;
   }
+}
+
+.contact-img {
+  position: relative;
+  &::after {
+    content: "";
+    background: rgba(0,0,0,.27);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+
 }
