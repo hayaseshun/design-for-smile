@@ -134,6 +134,12 @@ img {
   margin: 120px auto 0;
   padding: 110px 0 110px 50px;
   position: relative;
+  @include mq(tab) {
+    padding: 60px 90px;
+  }
+  @include mq(sm) {
+    padding: 50px 15px;
+  }
   &::after {
     content: "";
     background: rgba(0, 0, 0, 0.27);
@@ -184,7 +190,7 @@ img {
 }
 .works-culture-common {
   @include mq(pc) {
-    width: calc(50% -60px / 2);
+    width: calc(50% - 60px / 2);
   }
   & + & {
     @include mq(pc) {
@@ -253,7 +259,7 @@ img {
   }
   @include mq(tab) {
     padding: 40px 30px;
-    max-width: 520px;
+    width: 60vw;
   }
   @include mq(sm) {
     padding: 40px 15px;
@@ -278,5 +284,19 @@ img {
     top: 0;
     left: 0;
     bottom: 0;
+  }
+}
+
+/*=====================================================
+# footer
+===================================================== */
+.footer {
+  background: #222;
+  padding: 20px 0;
+
+  &__message {
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
   }
 }
